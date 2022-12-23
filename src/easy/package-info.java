@@ -1,4 +1,4 @@
 /**
- *ACWing简单题
+ *简单题
  */
 package easy;

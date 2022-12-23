@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- 孤独的照片
+  4261 孤独的照片(ACWing)
  */
-public class T4261 {
+public class A4261 {
 
     static int N = 500010;
     static char[] g = new char[N];
