@@ -11,8 +11,6 @@ public class A4653 {
         n = in.nextInt();
         m = in.nextInt();
         HashMap<Integer, Integer> m = new HashMap<>();
-
-
     }
 
     static int countSum(int a){

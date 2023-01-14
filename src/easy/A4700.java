@@ -4,18 +4,26 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class A4700 {
-    private static final int INF = 0x3f3f3f3f;
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(), m = sc.nextInt();
-        int[] v = new int[n], dp = new int[m + 1];
-        for (int i = 0; i < n; ++i)
-            v[i] = sc.nextInt();
-        Arrays.fill(dp, 1, m + 1, INF);
-        for (int i = 0; i < n; ++i)
-            for (int j = m; j >= 0; --j)
-                dp[j] = Math.min(dp[j], dp[Math.max(0, j - v[i])] + v[i]);
-        System.out.println(dp[m]);
+        int N = 33;
+        int[] a = new int[N];
+        int[] f = new int[N];
+        int sum  = 0;
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        for(int i = 1; i <= n; i ++){
+            a[i] = in.nextInt();
+            sum += a[i];
+        }
+
+        int m = sum - k;
+
+        for(int i = 1; i <= n; i ++){
+            for(int j = m; j >= a[i]; j --){
+                f[j] = Math.max(f[j], f[j-a[i]] + a[i]);
+            }
+        }
+        System.out.println(f[m]);
     }
 }
