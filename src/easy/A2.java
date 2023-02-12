@@ -10,6 +10,8 @@ public class A2 {
     static int N = 1010;
     static int[] v = new int[N];
     static int[] w = new int[N];
+
+
     static int[] f = new int[N];
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
