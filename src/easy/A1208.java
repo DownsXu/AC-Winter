@@ -3,21 +3,18 @@ package easy;
 import java.util.Scanner;
 
 public class A1208 {
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        char[] c1 = scanner.next().toCharArray();
-        char[] c2 = scanner.next().toCharArray();
+        Scanner in = new Scanner(System.in);
+        char[] s1 = in.next().toCharArray();
+        char[] s2 = in.next().toCharArray();
+
         int res = 0;
-        for(int i = 0; i < c1.length-1; i ++){
-            if(c1[i] != c2[i]){
+        for (int i = 0; i < s1.length-1; i ++){
+            if (s1[i] != s2[i]){
+                s1[i] = s2[i];
+                if (s2[i+1] == 'o') s2[i+1] = '*';
+                else s2[i+1] = 'o';
                 res ++;
-                c1[i] = c2[i];
-                if(c1[i+1] == '*'){
-                    c1[i+1] = 'o';
-                }else{
-                    c1[i+1] = '*';
-                }
             }
         }
         System.out.println(res);
