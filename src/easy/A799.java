@@ -1,10 +1,6 @@
 package easy;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.*;
 
 /**
  * @BelongsProject: AC-Winter
@@ -17,23 +13,24 @@ import java.util.Scanner;
 public class A799 {
     static final int N = 100010;
     static int[] a = new int[N];
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        for (int i = 1;i <= n; i ++){
-            a[i] = in.nextInt();
-        }
+    static int[] s = new int[N];
+    public static void main(String[] args) throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
 
-        // 9 3 6 9 5 10 1 2 3 9 - >1 2 3 3 5 6 9 9 9 10
-        Arrays.sort(a, 1, n);
-        int res = n;
-        for (int i = 1; i <= n; i ++){
-            if (a[i] != a[i+1]) continue;
-            int j = i + 1;
-            while (j < n && a[j] == a[i]) j ++;
-            res -= (j - i + 1);
-            i = j;
+        int n = Integer.parseInt(in.readLine());
+        String[] str = in.readLine().split(" ");
+        int res = -1;
+        for (int i = 1, j = 1; i <= n; i ++){
+            a[i] = Integer.parseInt(str[i-1]);
+            s[a[i]] ++;
+            while (s[a[i]] > 1){
+                s[a[j]] --;
+                j ++;
+            }
+            res = Math.max(res, i - j + 1);
         }
-        System.out.println(res);
+        out.println(res);
+        out.close();
     }
 }
